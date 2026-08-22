@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { UniversalCardProps } from "@/lib/types/cardProp";
 import { cn } from "@/lib/utils";
 import { cardThemeStyles } from "@/lib/cardTheme";
+import { Progress } from "../ui/progress";
 
 const UniversalCard: React.FC<UniversalCardProps> = (props) => {
   const { title, theme = "purple", icon, className } = props;
@@ -67,17 +68,11 @@ const UniversalCard: React.FC<UniversalCardProps> = (props) => {
                 {props.subtitle}
               </p>
             )}
-            <div className="w-full bg-gray-200/70 h-2 rounded-full overflow-hidden mt-2">
-              <div
-                className={cn(
-                  "h-full transition-all duration-500 rounded-full",
-                  style.progress,
-                )}
-                style={{
-                  width: `${Math.min(100, (props.currentValue / props.maxValue) * 100)}%`,
-                }}
-              />
-            </div>
+            <Progress
+              value={Math.min(100, (props.currentValue / props.maxValue) * 100)}
+              className="h-2 w-full bg-gray-200/80"
+              indicatorClassname={style.progress}
+            />
           </div>
         )}
 

@@ -19,7 +19,7 @@ export default function Page() {
         title="Today's Study"
         value="3h 45m"
         subtitle="of 6h goal"
-        currentValue={3.75}
+        currentValue={1}
         maxValue={6}
         theme="blue"
         icon={<Clock className="w-5 h-5" />}
